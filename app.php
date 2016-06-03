@@ -17,8 +17,21 @@ $app['debug'] = true;
  */
 $app->get('/', 'App\\Controllers\\HomeController::getIndex'); 
 $app->get('/logout', 'App\\Controllers\\HomeController::getLogout'); 
+$app->get('/orders', 'App\\Controllers\\HomeController::orders');
+$app->get('/order/show/{id}', 'App\\Controllers\\HomeController::show');
+$app->get('/shipping/{id}', 'App\\Controllers\\HomeController::shipping');
+
+// -------------------------cart-----------------------
+
 $app->get('/cart', 'App\\Controllers\\CartController::getIndex'); 
 $app->post('/cart/add', 'App\\Controllers\\CartController::postAdd'); 
+$app->get('/cart/checkout', 'App\\Controllers\\CartController::getCheck'); 
+$app->post('/cart/order', 'App\\Controllers\\CartController::postOrder');
+
+// --------------------------------costomre------------------------------
+
+$app->get('/customer/add', 'App\\Controllers\\CustomerController::customerAdd'); 
+$app->post('/customer/post', 'App\\Controllers\\CustomerController::customerStore');
 
 
 $app->run(); 

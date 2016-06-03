@@ -1,12 +1,12 @@
 <?php namespace App\Models;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Product extends Eloquent {
-	protected $fillable = ['title'];
+class Customer extends Eloquent {
+	protected $guarded = ['id'];
 	public $timestamps = false;
 
 	public function orders()
 	{
-		return $this->belongsToMany('App\Models\Order');
+		return $this->hasmany('App\Models\Order');
 	}
 }

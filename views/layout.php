@@ -11,20 +11,25 @@
     <link rel="stylesheet" href="/semantic/semantic.min.css">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/normalize.css">
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
 </head>
 <body>
     <div class="ui menu">
         <div class="item header">Ma super boutique</div>
         <a class="active item" href="/">Produits</a>
         <a class="item" href="/cart">Mon panier (<?=Cart::count()?> - <?=Cart::total()?> &euro;)</a>
+        <a href="/orders" class="item">Orders</a>
         <div class="right menu">
             <div class="item">
-                <a href="/logout" class="ui primary button">Logout</a>
+                <a href="/logout" class="ui primary button">Clean</a>
             </div>
         </div>
     </div>
     <!-- flash message -->
+    <?php if(isset($_SESSION['msg'])) : ?>
+        <div class="ui message"><?=flash()?></div>
+    <?php endif; ?>
+
     <?=$this->section('content')?>
     <details>
         <h2>$_SESSION</h2>
