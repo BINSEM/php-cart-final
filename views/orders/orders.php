@@ -19,6 +19,8 @@
               <td class="ui center aligned"><?=$this->e($order->amount)?> &euro;</td>
               <?php if(count($order->shipped) === 1) : ?>
                 <td class="ui center aligned">Yes</td>
+              <?php else: ?>
+                <td class="ui center aligned">No</td>
               <?php endif; ?>
             </tr>
           <?php endforeach ?>
